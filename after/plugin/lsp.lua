@@ -17,7 +17,7 @@ end)
 
 require('mason').setup({})
 require('mason-lspconfig').setup({
-  ensure_installed = {'clangd', 'tsserver'},
+  ensure_installed = {'tsserver'},
   handlers = {
     lsp_zero.default_setup,
     lua_ls = function()
@@ -26,6 +26,21 @@ require('mason-lspconfig').setup({
     end,
   }
 })
+
+lsp_zero.extend_lspconfig()
+
+local lspconfig = require'lspconfig'
+lspconfig.ccls.setup {
+    init_options = {
+        compilationDatabaseDirectory = "build";
+        index = {
+            threads = 0;
+        };
+        clang = {
+            excludeArgs = { "-frounding-math" };
+        };
+    }
+}
 
 local cmp = require('cmp')
 local cmp_select = {behavior = cmp.SelectBehavior.Select}
