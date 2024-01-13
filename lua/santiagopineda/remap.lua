@@ -29,3 +29,4 @@ vim.keymap.set("n", "L", "<C-w>l")
 
 -- Commenting
 vim.keymap.set("n", "<leader>/", ":Commentary<CR>")
+vim.keymap.set("v", "<leader>/", ":Commentary<CR>")

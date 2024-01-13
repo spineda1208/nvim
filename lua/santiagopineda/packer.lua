@@ -10,7 +10,8 @@ return require('packer').startup(function(use)
 		requires = { {'nvim-lua/plenary.nvim'} }
 	}
 
-	use {'nyoom-engineering/oxocarbon.nvim'}
+	use('nyoom-engineering/oxocarbon.nvim')
+    use('folke/tokyonight.nvim') 
 	use('nvim-treesitter/nvim-treesitter', {run = ':TSUpdate'})
 	use('nvim-treesitter/playground')
 	use('theprimeagen/harpoon')
