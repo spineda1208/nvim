@@ -27,20 +27,34 @@ require('mason-lspconfig').setup({
   }
 })
 
-lsp_zero.extend_lspconfig()
 
-local lspconfig = require'lspconfig'
-lspconfig.ccls.setup {
-    init_options = {
-        compilationDatabaseDirectory = "build";
-        index = {
-            threads = 0;
-        };
-        clang = {
-            excludeArgs = { "-frounding-math" };
-        };
+function is_clangd()
+    local handle = io.popen('which clangd')
+    local result = handle:read("*a")
+    handle:close()
+    if result:match("/clangd") then
+        return true
+    else
+        return false
+    end
+end
+
+if not is_clangd() then
+    lsp_zero.extend_lspconfig()
+    local lspconfig = require'lspconfig'
+    lspconfig.ccls.setup {
+        init_options = {
+            compilationDatabaseDirectory = "build";
+            index = {
+                threads = 0;
+            };
+            clang = {
+                excludeArgs = { "-frounding-math" };
+            };
+        }
     }
-}
+end
+
 
 local cmp = require('cmp')
 local cmp_select = {behavior = cmp.SelectBehavior.Select}
