@@ -3,6 +3,7 @@ vim.g.mapleader = " "
 
 -- Greatest Remaps 
 vim.keymap.set("n", "Q", "<nop>")
+vim.keymap.set("i", "<C-c>", "<Esc>")
 
 -- Clipboard Management
 vim.keymap.set({"n", "v"}, "<leader>d", [["_d]])
@@ -41,3 +42,7 @@ vim.keymap.set("n", "<leader>l", "<C-w>l")
 -- Commenting
 vim.keymap.set("n", "<leader>/", ":Commentary<CR>")
 vim.keymap.set("v", "<leader>/", ":Commentary<CR>")
+
+-- Git
+vim.keymap.set("gj", ":diffget //2")
+vim.keymap.set("gk", ":diffget //3")

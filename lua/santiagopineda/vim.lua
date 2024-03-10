@@ -23,5 +23,5 @@ vim.opt.scrolloff = 8
 
 
 vim.opt.termguicolors = true
-vim.cmd("set nohidden")
+vim.opt.hidden = true
 vim.cmd("set guicursor+=n-v-c-i:block")
