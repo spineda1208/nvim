@@ -44,5 +44,8 @@ vim.keymap.set("n", "<leader>/", ":Commentary<CR>")
 vim.keymap.set("v", "<leader>/", ":Commentary<CR>")
 
 -- Git
+vim.keymap.set("gps", ":Git push")
+vim.keymap.set("gpl", ":Git pull")
 vim.keymap.set("gj", ":diffget //2")
 vim.keymap.set("gk", ":diffget //3")
+
