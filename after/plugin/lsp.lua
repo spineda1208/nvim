@@ -17,31 +17,31 @@ end)
 
 require('mason').setup({})
 require('mason-lspconfig').setup({
-  ensure_installed = {'tsserver', 'eslint', 'lua_ls', 'pyright', 'clangd'},
+  ensure_installed = {'tsserver', 'lua_ls', 'pyright'},
   handlers = {
     lsp_zero.default_setup,
     lua_ls = function()
       local lua_opts = lsp_zero.nvim_lua_ls()
       require('lspconfig').lua_ls.setup(lua_opts)
-    end
-    -- tsserver = function()
-    --     require('lspconfig').tsserver.setup {
-    --         settings = {
-    --             javascript = {
-    --                 suggest = {
-    --                     autoImports = true
-    --                 }
-    --             },
-    --             typescript = {
-    --                 suggest = {
-    --                     autoImports = true
-    --                 }
-    --             }
-    --         }
-    --     }
-    -- end,
+    end,
   }
 })
+
+
+lsp_zero.extend_lspconfig()
+local lspconfig = require'lspconfig'
+lspconfig.ccls.setup {
+    init_options = {
+        compilationDatabaseDirectory = "build";
+        index = {
+            threads = 0;
+        };
+        clang = {
+            excludeArgs = { "-frounding-math" };
+        };
+    }
+}
+
 
 local cmp = require('cmp')
 local cmp_select = {behavior = cmp.SelectBehavior.Select}
