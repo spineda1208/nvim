@@ -15,17 +15,18 @@ vim.keymap.set({"n", "v"}, "<leader>y", [["+y]])
 -- vim.keymap.set("n", "<leader>Y", [["+Y]])
 
 -- Basics
-vim.keymap.set("n", "<leader>e", vim.cmd.Ex)
+vim.keymap.set("n", "<leader>e", ":Oil<CR>")
 vim.keymap.set("n", "<leader>w", vim.cmd.w)
 vim.keymap.set("n", "<leader>q", ":q!<CR>")
+vim.keymap.set("n", "<C-s>", "<C-a>")
 
 -- Move Lines
-vim.keymap.set('v', 'J', ":m '>+1<CR>gv=gv")
 vim.keymap.set('v', 'K', ":m '<-2<CR>gv=gv")
+vim.keymap.set('v', 'J', ":m '>+1<CR>gv=gv")
 
 vim.keymap.set('n', 'J', ":m .+1<CR>==")
 vim.keymap.set('n', 'K', ":m .-2<CR>==")
---
+
 -- Indenting
 vim.keymap.set('n', '<', '<<')
 vim.keymap.set('n', '>', '>>')
@@ -33,19 +34,17 @@ vim.keymap.set('n', '>', '>>')
 vim.keymap.set('v', '<', '<gv')
 vim.keymap.set('v', '>', '>gv')
 
--- Navigaton
-vim.keymap.set("n", "<leader>h", "<C-w>h")
-vim.keymap.set("n", "<leader>j", "<C-w>j")
-vim.keymap.set("n", "<leader>k", "<C-w>k")
-vim.keymap.set("n", "<leader>l", "<C-w>l")
-
 -- Commenting
-vim.keymap.set("n", "<leader>/", ":Commentary<CR>")
-vim.keymap.set("v", "<leader>/", ":Commentary<CR>")
+vim.keymap.set({"n", "v"}, "<leader>/", ":Commentary<CR>")
 
 -- Git
-vim.keymap.set("n", "gps", ":Git push<CR>")
-vim.keymap.set("n", "gpl", ":Git pull<CR>")
-vim.keymap.set("n", "gj", ":diffget //2<CR>")
-vim.keymap.set("n", "gk", ":diffget //3<CR>")
+vim.keymap.set("n", "<leader>gps", ":Git push<CR>")
+vim.keymap.set("n", "<leader>gpl", ":Git pull<CR>")
+vim.keymap.set("n", "<leader>gw", ":Gwrite<CR>")
+vim.keymap.set("n", "<leader>gj", ":diffget //2<CR>")
+vim.keymap.set("n", "<leader>gk", ":diffget //3<CR>")
 
+-- Source
+vim.keymap.set("n", "<leader>sp",
+               ":source ~/.config/nvim/lua/santiagopineda/packer.lua<CR>")
+vim.keymap.set("n", "<leader>sv", ":source ~/.config/nvim/init.lua<CR>")
