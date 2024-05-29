@@ -1,1 +1,1 @@
-require("santiagopineda")
+require("config")
