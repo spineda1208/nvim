@@ -29,4 +29,3 @@ vim.cmd("set guicursor+=n-v-c-i:block")
 -- vim.cmd("set syntax sync minlines=200")
 -- Set syntax sync maxlines=500
 -- vim.cmd("set syntax sync maxlines=500")
-
