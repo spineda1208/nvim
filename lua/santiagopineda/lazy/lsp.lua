@@ -27,7 +27,6 @@ return {
 		require("mason-lspconfig").setup({
 			ensure_installed = {
 				"lua_ls",
-				"rust_analyzer",
 				"tsserver",
 				"pyright",
 			},
@@ -44,7 +43,7 @@ return {
 						capabilities = capabilities,
 						settings = {
 							Lua = {
-								runtime = { version = "Lua 5.1" },
+								runtime = { version = "LuaJIT" },
 								diagnostics = {
 									globals = {
 										"vim",
@@ -53,6 +52,12 @@ return {
 										"before_each",
 										"after_each",
 									},
+								},
+								workspace = {
+									library = vim.api.nvim_get_runtime_file("", true),
+								},
+								telemetry = {
+									enable = false,
 								},
 							},
 						},
@@ -66,6 +71,7 @@ return {
 		cmp.setup({
 			sources = cmp.config.sources({
 				{ name = "nvim_lsp" },
+				{ name = "path" },
 				{ name = "luasnip" }, -- For luasnip users.
 			}, { { name = "buffer" } }),
 			-- formatting = lsp_zero.cmp_format(),
