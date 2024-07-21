@@ -19,7 +19,6 @@ vim.keymap.set("n", "<leader>e", ":Oil<CR>")
 -- vim.keymap.set("n", "<leader>e", vim.cmd.Ex)
 vim.keymap.set("n", "<leader>w", vim.cmd.w)
 vim.keymap.set("n", "<leader>q", ":q!<CR>")
-vim.keymap.set("n", "<C-s>", "<C-a>")
 
 -- Quick Fix List
 vim.keymap.set("n", "<M-j>", ":cnext<CR>")
