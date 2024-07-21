@@ -8,7 +8,7 @@ vim.keymap.set("i", "<C-c>", "<Esc>")
 -- Clipboard Management
 vim.keymap.set({ "n", "v" }, "<leader>d", [["_d]])
 
-vim.keymap.set("x", "P", '"_dP')
+-- vim.keymap.set("x", "P", '"_dP')
 vim.keymap.set({ "n", "v" }, "<leader>p", '"+p')
 
 vim.keymap.set({ "n", "v" }, "<leader>y", [["+y]])
