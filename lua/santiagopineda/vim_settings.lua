@@ -1,4 +1,3 @@
--- vim.opt.clipboard = "unnamedplus"
 vim.opt.nu = true
 vim.opt.relativenumber = true
 
@@ -25,7 +24,6 @@ vim.opt.termguicolors = true
 vim.opt.hidden = false
 vim.cmd("set guicursor+=n-v-c-i:block")
 
--- Set syntax sync minlines=200
--- vim.cmd("set syntax sync minlines=200")
--- Set syntax sync maxlines=500
--- vim.cmd("set syntax sync maxlines=500")
+vim.g.netrw_browse_split = 0
+vim.g.netrw_banner = 0
+vim.g.netrw_winsize = 25

@@ -21,6 +21,10 @@ vim.keymap.set("n", "<leader>w", vim.cmd.w)
 vim.keymap.set("n", "<leader>q", ":q!<CR>")
 vim.keymap.set("n", "<C-s>", "<C-a>")
 
+-- Quick Fix List
+vim.keymap.set("n", "<M-j>", ":cnext<CR>")
+vim.keymap.set("n", "<M-k>", ":cprev<CR>")
+
 -- Move Lines
 vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv")
 vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv")
@@ -37,10 +41,6 @@ vim.keymap.set("v", ">", ">gv")
 
 -- Commenting
 vim.keymap.set({ "n", "v" }, "<leader>/", ":Commentary<CR>")
-
--- Folds
-vim.keymap.set({ "n", "v" }, "fo", ":foldopen<CR>")
-vim.keymap.set({ "n", "v" }, "fc", ":foldclose<CR>")
 
 -- Source
 vim.keymap.set("n", "<leader>sv", ":source ~/.config/nvim/init.lua<CR>")
