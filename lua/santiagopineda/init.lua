@@ -35,10 +35,10 @@ autocmd("LspAttach", {
 		vim.keymap.set("n", "<leader>vd", function()
 			vim.diagnostic.open_float()
 		end, opts)
-		vim.keymap.set("n", "d]", function()
+		vim.keymap.set("n", "]d", function()
 			vim.diagnostic.goto_next()
 		end, opts)
-		vim.keymap.set("n", "d[", function()
+		vim.keymap.set("n", "[d", function()
 			vim.diagnostic.goto_prev()
 		end, opts)
 		vim.keymap.set("n", "<leader>vca", function()
@@ -53,5 +53,22 @@ autocmd("LspAttach", {
 		vim.keymap.set({ "n", "i" }, "<C-p>", function()
 			vim.lsp.buf.signature_help()
 		end, opts)
+	end,
+})
+
+autocmd("FileType", {
+	pattern = "tex",
+	callback = function()
+		vim.keymap.set("n", "<localleader>c", ":VimtexCompile<CR>")
+		vim.keymap.set("n", "<localleader>v", ":VimtexView<CR>")
+		vim.keymap.set("n", "<localleader>s", ":VimtexStop<CR>")
+	end,
+})
+
+autocmd("User", {
+	pattern = "vimtexeventviewreverse",
+	callback = function()
+		vim.fn.system("open -a Alacritty")
+		vim.cmd("redraw!")
 	end,
 })

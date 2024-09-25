@@ -1,5 +1,6 @@
 -- Leader
 vim.g.mapleader = " "
+vim.g.maplocalleader = " "
 
 -- Greatest Remaps
 vim.keymap.set("n", "Q", "<nop>")
@@ -10,6 +11,7 @@ vim.keymap.set({ "n", "v" }, "<leader>d", [["_d]])
 
 -- vim.keymap.set("x", "P", '"_dP')
 vim.keymap.set({ "n", "v" }, "<leader>p", '"+p')
+vim.keymap.set({ "n", "v" }, "<leader>P", '"+P')
 
 vim.keymap.set({ "n", "v" }, "<leader>y", [["+y]])
 -- vim.keymap.set("n", "<leader>Y", [["+Y]])
@@ -17,13 +19,15 @@ vim.keymap.set({ "n", "v" }, "<leader>y", [["+y]])
 -- Basics
 vim.keymap.set("n", "<leader>e", ":Oil<CR>")
 -- vim.keymap.set("n", "<leader>e", vim.cmd.Ex)
-vim.keymap.set("n", "<leader>w", vim.cmd.w)
-vim.keymap.set("n", "<leader>q", ":q!<CR>")
+-- vim.keymap.set("n", "<leader>w", vim.cmd.w)
+-- vim.keymap.set("n", "<leader>q", ":q!<CR>")
 
 -- Quick Fix List
 vim.keymap.set("n", "<M-j>", ":cnext<CR>")
 vim.keymap.set("n", "<M-k>", ":cprev<CR>")
 
+-- Join Lines
+vim.keymap.set("x", "J", "J")
 -- Move Lines
 vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv")
 vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv")

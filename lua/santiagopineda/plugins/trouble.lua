@@ -1,25 +1,28 @@
 return {
 	{
 		"folke/trouble.nvim",
-		enabled = false,
+		enabled = true,
+		lazy = false,
 		cmd = "Trouble",
 		dependencies = {
 			"nvim-tree/nvim-web-devicons",
 		},
 
 		config = function()
-			require("trouble").setup({ icons = true })
+			local trouble = require("trouble")
+			trouble.setup()
 
 			vim.keymap.set("n", "<leader>tt", function()
-				require("trouble").toggle()
+				trouble.toggle("diagnostics")
+				trouble.toggle_preview()
 			end)
 
 			vim.keymap.set("n", "[t", function()
-				require("trouble").next({ skip_groups = true, jump = true })
+				trouble.next({ skip_groups = true, jump = true }, {})
 			end)
 
 			vim.keymap.set("n", "]t", function()
-				require("trouble").previous({ skip_groups = true, jump = true })
+				trouble.previous({ skip_groups = true, jump = true })
 			end)
 		end,
 	},
