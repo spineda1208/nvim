@@ -10,19 +10,15 @@ return {
 
 		config = function()
 			local trouble = require("trouble")
-			trouble.setup()
+			trouble.setup({
+				win = {
+					position = "right",
+					size = { width = 45 },
+				},
+			})
 
 			vim.keymap.set("n", "<leader>tt", function()
 				trouble.toggle("diagnostics")
-				trouble.toggle_preview()
-			end)
-
-			vim.keymap.set("n", "[t", function()
-				trouble.next({ skip_groups = true, jump = true }, {})
-			end)
-
-			vim.keymap.set("n", "]t", function()
-				trouble.previous({ skip_groups = true, jump = true })
 			end)
 		end,
 	},

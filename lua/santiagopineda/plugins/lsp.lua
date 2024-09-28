@@ -12,6 +12,7 @@ return {
 			"L3MON4D3/LuaSnip",
 			"saadparwaiz1/cmp_luasnip",
 			"j-hui/fidget.nvim",
+			"artemave/workspace-diagnostics.nvim",
 		},
 		config = function()
 			local cmp = require("cmp")
@@ -35,9 +36,20 @@ return {
 					function(server_name) -- default handler (optional)
 						require("lspconfig")[server_name].setup({
 							capabilities = capabilities,
+							on_attach = function(client, bufnr)
+								require("workspace-diagnostics").populate_workspace_diagnostics(client, bufnr)
+							end,
 						})
 					end,
 
+					["ruff_lsp"] = function()
+						local lspconfig = require("lspconfig")
+						lspconfig.ruff_lsp.setup({
+							root_dir = function(fname)
+								return vim.fn.getcwd()
+							end,
+						})
+					end,
 					["lua_ls"] = function()
 						local lspconfig = require("lspconfig")
 						lspconfig.lua_ls.setup({
