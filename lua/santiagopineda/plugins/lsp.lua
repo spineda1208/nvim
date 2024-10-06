@@ -50,6 +50,7 @@ return {
 							end,
 						})
 					end,
+
 					["lua_ls"] = function()
 						local lspconfig = require("lspconfig")
 						lspconfig.lua_ls.setup({
@@ -74,6 +75,16 @@ return {
 				},
 			})
 			require("lspconfig").gleam.setup({})
+
+			require("lspconfig").ocamllsp.setup({
+				manual_install = true,
+				cmd = { "dune", "tools", "exec", "ocamllsp" },
+				settings = {
+					codelens = { enable = true },
+					inlayHint = { enable = true },
+					syntaxDocumentation = { enable = true },
+				},
+			})
 
 			local cmp_select = { behavior = cmp.SelectBehavior.Select }
 
