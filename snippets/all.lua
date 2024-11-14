@@ -9,5 +9,6 @@ local fmta = require("luasnip.extras.fmt").fmta
 return {
 	s("hw", t("Hello, World!")),
 	s("sp", t("Santiago Pineda")),
+	s("ull", t("update: lazy-lock")),
 	s("test", fmta("print(<>)", { i(1) })),
 }
