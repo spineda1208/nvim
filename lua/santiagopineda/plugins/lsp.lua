@@ -23,6 +23,12 @@ return {
 				vim.lsp.protocol.make_client_capabilities(),
 				cmp_lsp.default_capabilities()
 			)
+			local universal_lsp_config = {
+				capabilities = capabilities,
+				on_attach = function(client, bufnr)
+					require("workspace-diagnostics").populate_workspace_diagnostics(client, bufnr)
+				end,
+			}
 
 			require("fidget").setup({})
 			require("mason").setup()
@@ -34,21 +40,7 @@ return {
 				},
 				handlers = {
 					function(server_name) -- default handler (optional)
-						require("lspconfig")[server_name].setup({
-							capabilities = capabilities,
-							on_attach = function(client, bufnr)
-								require("workspace-diagnostics").populate_workspace_diagnostics(client, bufnr)
-							end,
-						})
-					end,
-
-					["ruff_lsp"] = function()
-						local lspconfig = require("lspconfig")
-						lspconfig.ruff_lsp.setup({
-							root_dir = function(fname)
-								return vim.fn.getcwd()
-							end,
-						})
+						require("lspconfig")[server_name].setup(universal_lsp_config)
 					end,
 
 					["lua_ls"] = function()
@@ -74,17 +66,27 @@ return {
 					end,
 				},
 			})
-			require("lspconfig").gleam.setup({})
+			require("lspconfig").gleam.setup(universal_lsp_config)
 
-			require("lspconfig").ocamllsp.setup({
+			require("lspconfig").ocamllsp.setup(vim.tbl_extend("force", universal_lsp_config, {
 				manual_install = true,
 				cmd = { "dune", "tools", "exec", "ocamllsp" },
+				capabilities = capabilities,
 				settings = {
 					codelens = { enable = true },
 					inlayHint = { enable = true },
 					syntaxDocumentation = { enable = true },
 				},
-			})
+			}))
+
+			require("lspconfig").ruff.setup(vim.tbl_extend("force", universal_lsp_config, {
+				manual_install = true,
+				cmd = { "ruff", "server" },
+				capabilities = capabilities,
+				root_dir = function(fname)
+					return vim.fn.getcwd()
+				end,
+			}))
 
 			local cmp_select = { behavior = cmp.SelectBehavior.Select }
 
