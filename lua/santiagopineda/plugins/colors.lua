@@ -8,7 +8,16 @@ end
 
 return {
 	{ "nyoom-engineering/oxocarbon.nvim" },
-	{ "folke/tokyonight.nvim" },
+	{
+		"folke/tokyonight.nvim",
+		opts = {
+			transparent = true,
+			styles = {
+				sidebars = "transparent",
+				floats = "transparent",
+			},
+		},
+	},
 
 	{
 		"sainnhe/everforest",
