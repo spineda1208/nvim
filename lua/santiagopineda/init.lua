@@ -44,7 +44,7 @@ autocmd("LspAttach", {
 		vim.keymap.set("n", "<leader>vca", function()
 			vim.lsp.buf.code_action()
 		end, opts)
-		vim.keymap.set("n", "<leader>grr", function()
+		vim.keymap.set("n", "<leader>vr", function()
 			vim.lsp.buf.references()
 		end, opts)
 		vim.keymap.set("n", "<leader>rn", function()
@@ -68,7 +68,7 @@ autocmd("FileType", {
 autocmd("User", {
 	pattern = "vimtexeventviewreverse",
 	callback = function()
-		vim.fn.system("open -a Alacritty")
+		vim.fn.system("open -a Ghostty")
 		vim.cmd("redraw!")
 	end,
 })
