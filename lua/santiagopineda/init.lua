@@ -41,7 +41,7 @@ autocmd("LspAttach", {
 		vim.keymap.set("n", "[d", function()
 			vim.diagnostic.goto_prev()
 		end, opts)
-		vim.keymap.set("n", "<leader>vca", function()
+		vim.keymap.set("n", "<leader>ca", function()
 			vim.lsp.buf.code_action()
 		end, opts)
 		vim.keymap.set("n", "<leader>vr", function()

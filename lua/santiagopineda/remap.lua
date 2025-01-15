@@ -44,6 +44,3 @@ vim.keymap.set("v", ">", ">gv")
 
 -- Commenting
 vim.keymap.set({ "n", "v" }, "<leader>/", ":Commentary<CR>")
-
--- Source
-vim.keymap.set("n", "<leader>sv", ":source ~/.config/nvim/init.lua<CR>")
