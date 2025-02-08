@@ -7,7 +7,6 @@ function Color(color)
 end
 
 return {
-	{ "nyoom-engineering/oxocarbon.nvim" },
 	{
 		"folke/tokyonight.nvim",
 		opts = {
@@ -27,4 +26,9 @@ return {
 	},
 
 	{ "kepano/flexoki-neovim" },
+	{
+		"drewxs/ash.nvim",
+		lazy = false,
+		priority = 1000,
+	},
 }
