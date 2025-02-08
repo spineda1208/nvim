@@ -13,7 +13,6 @@ return {
 					keymap = {
 						preset = "default",
 						["<CR>"] = { "accept", "fallback" },
-						[";"] = { "show_documentation", "hide_documentation" },
 					},
 					appearance = {
 						use_nvim_cmp_as_default = true,
