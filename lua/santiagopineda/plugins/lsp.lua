@@ -12,7 +12,8 @@ return {
 				opts = {
 					keymap = {
 						preset = "default",
-						["<CR>"] = { "accept", "fallback" },
+						-- ["<CR>"] = { "accept", "fallback" },
+						["<Tab>"] = { "accept", "fallback" },
 					},
 					snippets = {
 						preset = "luasnip",
@@ -22,8 +23,8 @@ return {
 						nerd_font_variant = "mono",
 					},
 					signature = { enabled = true },
-					sources = {
-						cmdline = {},
+					cmdline = {
+						enabled = false,
 					},
 				},
 			},
@@ -64,6 +65,10 @@ return {
 				ensure_installed = {
 					"lua_ls",
 					"ts_ls",
+					"html",
+					"cssls",
+					"emmet_language_server",
+					"jsonls",
 					"pyright",
 				},
 				handlers = {
@@ -91,12 +96,16 @@ return {
 				},
 			}))
 
+			require("lspconfig").emmet_language_server.setup(vim.tbl_extend("force", config, {
+				manual_install = true,
+				filetypes = { "typescriptreact", "javascriptreact", "html", "css" },
+			}))
+
 			require("lspconfig").gleam.setup(config)
 
 			require("lspconfig").ocamllsp.setup(vim.tbl_extend("force", config, {
 				manual_install = true,
 				cmd = { "dune", "tools", "exec", "ocamllsp" },
-				capabilities = capabilities,
 				settings = {
 					codelens = { enable = true },
 					inlayHint = { enable = true },
@@ -107,7 +116,6 @@ return {
 			require("lspconfig").ruff.setup(vim.tbl_extend("force", config, {
 				manual_install = true,
 				cmd = { "ruff", "server" },
-				capabilities = capabilities,
 				root_dir = function(fname)
 					return vim.fn.getcwd()
 				end,

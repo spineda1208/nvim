@@ -1,4 +1,4 @@
-require("santiagopineda.remap")
+require("santiagopineda.keymaps")
 require("santiagopineda.vim_settings")
 require("santiagopineda.lazy_init")
 
@@ -49,9 +49,6 @@ autocmd("LspAttach", {
 		end, opts)
 		vim.keymap.set("n", "<leader>rn", function()
 			vim.lsp.buf.rename()
-		end, opts)
-		vim.keymap.set({ "n", "i" }, "<C-p>", function()
-			vim.lsp.buf.signature_help()
 		end, opts)
 	end,
 })
