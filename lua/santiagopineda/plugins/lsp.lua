@@ -5,11 +5,20 @@ return {
 			{
 				"saghen/blink.cmp",
 
-				dependencies = "rafamadriz/friendly-snippets",
+				dependencies = { "rafamadriz/friendly-snippets", "Kaiser-Yang/blink-cmp-avante" },
 
 				version = "*",
 
 				opts = {
+					sources = {
+						default = { "avante", "lsp", "path", "buffer" },
+						providers = {
+							avante = {
+								module = "blink-cmp-avante",
+								name = "Avante",
+							},
+						},
+					},
 					keymap = {
 						preset = "default",
 						-- ["<CR>"] = { "accept", "fallback" },
