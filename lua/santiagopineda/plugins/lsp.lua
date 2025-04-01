@@ -11,12 +11,9 @@ return {
 
 				opts = {
 					sources = {
-						default = { "avante", "lsp", "path", "buffer" },
-						providers = {
-							avante = {
-								module = "blink-cmp-avante",
-								name = "Avante",
-							},
+						default = { "lsp", "path", "buffer" },
+						per_filetype = {
+							codecompanion = { "codecompanion" },
 						},
 					},
 					keymap = {
