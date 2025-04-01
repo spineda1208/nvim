@@ -5,16 +5,13 @@ return {
 			{
 				"saghen/blink.cmp",
 
-				dependencies = { "rafamadriz/friendly-snippets", "Kaiser-Yang/blink-cmp-avante" },
+				dependencies = { "rafamadriz/friendly-snippets" },
 
 				version = "*",
 
 				opts = {
 					sources = {
 						default = { "lsp", "path", "buffer" },
-						per_filetype = {
-							codecompanion = { "codecompanion" },
-						},
 					},
 					keymap = {
 						preset = "default",
