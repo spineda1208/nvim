@@ -16,18 +16,15 @@ return {
 				floats = "transparent",
 			},
 		},
-	},
-
-	{
-		"sainnhe/everforest",
 		config = function()
 			Color()
 		end,
 	},
-
-	{ "kepano/flexoki-neovim" },
+	{ "sainnhe/everforest", enabled = false },
+	{ "kepano/flexoki-neovim", enabled = false },
 	{
 		"drewxs/ash.nvim",
+		enabled = false,
 		lazy = false,
 		priority = 1000,
 	},
