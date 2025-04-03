@@ -12,6 +12,9 @@ return {
 				opts = {
 					sources = {
 						default = { "lsp", "path", "buffer" },
+						per_filetype = {
+							codecompanion = { "codecompanion" },
+						},
 					},
 					keymap = {
 						preset = "default",
