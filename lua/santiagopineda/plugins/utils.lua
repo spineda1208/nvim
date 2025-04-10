@@ -23,6 +23,7 @@ return {
 	},
 	{
 		"eandrju/cellular-automaton.nvim",
+		lazy = "VeryLazy",
 		config = function()
 			vim.keymap.set("n", "<leader>FUCK", "<cmd>CellularAutomaton make_it_rain<cr>")
 		end,
