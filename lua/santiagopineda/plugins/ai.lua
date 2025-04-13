@@ -5,6 +5,10 @@ return {
 		"nvim-lua/plenary.nvim",
 		"nvim-treesitter/nvim-treesitter",
 	},
+	keys = {
+		{ "<leader>aa", "<cmd>CodeCompanionChat Toggle<CR>" },
+	},
+
 	opts = {
 		strategies = {
 			chat = {
