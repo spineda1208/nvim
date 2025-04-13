@@ -78,6 +78,11 @@ return {
 					return vim.fn.getcwd()
 				end,
 			}))
+
+			require("lspconfig").sourcekit.setup(vim.tbl_extend("force", config, {
+				manual_install = true,
+				cmd = { "sourcekit-lsp" },
+			}))
 		end,
 	},
 }
