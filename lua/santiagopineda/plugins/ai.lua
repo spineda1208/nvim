@@ -6,7 +6,7 @@ return {
 		"nvim-treesitter/nvim-treesitter",
 	},
 	keys = {
-		{ "<leader>aa", "<cmd>CodeCompanionChat Toggle<CR>" },
+		{ "<leader>aa", "<cmd>CodeCompanionChat<CR>" },
 	},
 
 	opts = {
@@ -27,6 +27,13 @@ return {
 					},
 				},
 				adapter = "anthropic",
+				anthropic = {
+					model = "claude-3-sonnet-20240229",
+					options = {
+						temperature = 0,
+						disable_reasoning = true,
+					},
+				},
 			},
 			inline = {
 				adapter = "gemini",
