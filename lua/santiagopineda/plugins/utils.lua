@@ -15,7 +15,7 @@ return {
 	},
 	{
 		"lervag/vimtex",
-		lazy = false,
+		lazy = true,
 		init = function()
 			vim.g.vimtex_view_method = "skim"
 			vim.g.vimtex_quickfix_open_on_warning = 0
