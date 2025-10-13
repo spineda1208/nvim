@@ -82,53 +82,65 @@ return {
 				},
 				handlers = {
 					function(server_name) -- default handler (optional)
-						require("lspconfig")[server_name].setup(config)
+						vim.lsp.config(server_name, config)
 					end,
 				},
 			})
 
-			require("lspconfig").lua_ls.setup(vim.tbl_extend("force", config, {
-				settings = {
-					Lua = {
-						runtime = { version = "Lua 5.1" },
-						diagnostics = {
-							globals = {
-								"bit",
-								"vim",
-								"it",
-								"describe",
-								"before_each",
-								"after_each",
+			vim.lsp.config(
+				"lua_ls",
+				vim.tbl_extend("force", config, {
+					settings = {
+						Lua = {
+							runtime = { version = "Lua 5.1" },
+							diagnostics = {
+								globals = {
+									"bit",
+									"vim",
+									"it",
+									"describe",
+									"before_each",
+									"after_each",
+								},
 							},
 						},
 					},
-				},
-			}))
+				})
+			)
 
-			require("lspconfig").emmet_language_server.setup(vim.tbl_extend("force", config, {
-				manual_install = true,
-				filetypes = { "typescriptreact", "javascriptreact", "html", "css" },
-			}))
+			vim.lsp.config(
+				"emmet_language_server",
+				vim.tbl_extend("force", config, {
+					manual_install = true,
+					filetypes = { "typescriptreact", "javascriptreact", "html", "css" },
+				})
+			)
 
-			require("lspconfig").gleam.setup(config)
+			vim.lsp.config("gleam", config)
 
-			require("lspconfig").ocamllsp.setup(vim.tbl_extend("force", config, {
-				manual_install = true,
-				cmd = { "dune", "tools", "exec", "ocamllsp" },
-				settings = {
-					codelens = { enable = true },
-					inlayHint = { enable = true },
-					syntaxDocumentation = { enable = true },
-				},
-			}))
+			vim.lsp.config(
+				"ocamllsp",
+				vim.tbl_extend("force", config, {
+					manual_install = true,
+					cmd = { "dune", "tools", "exec", "ocamllsp" },
+					settings = {
+						codelens = { enable = true },
+						inlayHint = { enable = true },
+						syntaxDocumentation = { enable = true },
+					},
+				})
+			)
 
-			require("lspconfig").ruff.setup(vim.tbl_extend("force", config, {
-				manual_install = true,
-				cmd = { "ruff", "server" },
-				root_dir = function(fname)
-					return vim.fn.getcwd()
-				end,
-			}))
+			vim.lsp.config(
+				"ruff",
+				vim.tbl_extend("force", config, {
+					manual_install = true,
+					cmd = { "ruff", "server" },
+					root_dir = function(fname)
+						return vim.fn.getcwd()
+					end,
+				})
+			)
 		end,
 	},
 }
