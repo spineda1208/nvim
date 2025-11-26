@@ -78,7 +78,7 @@ return {
 					"cssls",
 					"emmet_language_server",
 					"jsonls",
-					"pyright",
+					"pyrefly",
 				},
 				handlers = {
 					function(server_name) -- default handler (optional)
